@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
 const mainRoutes = require('./routes/main');
-const createError = require('http-errors');
 const path = require('path');
 var cookieParser = require('cookie-parser');
 
@@ -25,9 +24,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', mainRoutes);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
+// app.use(function(req, res, next) {
+//   next(createError(404));
+// });
 
 mongoose.connect('mongodb://127.0.0.1:27017/HomeOwner')
   .then(()=> {

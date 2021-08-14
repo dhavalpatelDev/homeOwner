@@ -7,7 +7,7 @@ const mongod = new MongoMemoryServer();
  * Connect to the in-memory database.
  */
 module.exports.connect = async () => {
-    const uri = await mongod.getConnectionString();
+    const uri = "mongodb://127.0.0.1:27017/HomeOwner";
 
     const mongooseOpts = {
         useNewUrlParser: true,

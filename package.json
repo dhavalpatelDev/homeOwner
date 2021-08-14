@@ -33,5 +33,10 @@
   },
   "jest": {
     "testEnvironment": "node"
+  },
+  "config": {
+    "mongodbMemoryServer": {
+      "version": "4.2.3"
+    }
   }
 }

@@ -101,7 +101,6 @@
 
   var $contentsTable = $("#homeowner");
   let table = $contentsTable.DataTable({
-    sDom: 'lrtp<"pull-right"i>',
     columnDefs: [{
         orderable: false,
         className: 'select-checkbox',
@@ -111,17 +110,6 @@
         style: 'multi',
         selector: 'tr td:first-child'
     },
-    order: [
-        [1, 'asc']
-    ],
-    lengthMenu: [[25, 50, 100], [25, 50, 100]],
-    language: {
-        lengthMenu: "Display : _MENU_ ",
-        "info": "_START_ - _END_ of _TOTAL_",
-        "infoFiltered": "(filtered from _MAX_ total records)"
-    },
-    stateSave: true,
-
   });
   $("#removeSelected").click( function (e) {
     var data = table.rows({ selected: true }).data();
@@ -139,12 +127,12 @@
       deleteInfomations(ids);
   });
 
-  function deleteInfomations(ids) {
+  function deleteInfomations(id) {
     $.ajax({
       url : 'delete',
       method : 'post',
       data : {
-        ids : ids
+        ids : id
       },
       success : function(data) {
         location.reload();
