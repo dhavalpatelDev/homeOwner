@@ -90,6 +90,8 @@ const editInformation = async (req, res) => {
 const updateInformation = async (req, res) => {
     const id = req.body._id;
     const updateObject = req.body;
+    // console.log(updateObject);
+    updateObject.age = new Date().getFullYear() - new Date(updateObject.birthday).getFullYear();
     Information.update({ _id:id }, { $set:updateObject })
     .exec()
     .then(() => {

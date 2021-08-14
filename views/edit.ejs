@@ -64,7 +64,7 @@
                 </div>
                 <div class="form-group row text-center">
                     <div class="col-md-2"><label for="exampleInputEmail1">Date of Birth</label></div>
-                    <div class="col-md-9 col-md-offset-1"><input type="date" class="form-control" id="birthday" name="birthday" value="<%= new Date(data[0].birthday).getFullYear() %>-<%= new Date(data[0].birthday).getMonth() %>-<%= new Date(data[0].birthday).getDate() %>" aria-describedby="emailHelp"></div>
+                    <div class="col-md-9 col-md-offset-1"><input type="date" class="form-control" id="birthday" name="birthday" value="<%= new Date(data[0].birthday).getFullYear() %>-<%= ('0' + (new Date(data[0].birthday).getMonth()+1)).slice(-2) %>-<%= ('0' + (new Date(data[0].birthday).getDate())).slice(-2) %>" aria-describedby="emailHelp"></div>
                 </div>
                 <div class="form-group row text-center">
                     <div class="col-md-2"><label for="exampleInputEmail1">Age</label></div>
