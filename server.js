@@ -26,12 +26,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', mainRoutes);
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/HomeOwner')
-  .then(()=> {
-    console.log('Database connected');
-  })
-  .catch((error)=> {
-    console.log('Error connecting to database');
+// mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/HomeOwner')
+//   .then(()=> {
+//     console.log('Database connected');
+//   })
+//   .catch((error)=> {
+//     console.log('Error connecting to database');
+// });
+
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/HomeOwner', {useNewUrlParser: true, useUnifiedTopology: true,}, (err) => {
+  if (err)
+      console.error(err);
+  else
+      console.log("Connected to the mongodb"); 
 });
 
 app.listen(process.env.PORT || 3000 ,function() {
