@@ -26,8 +26,6 @@
               <th>State</th>
               <th>PostalCode</th>
               <th>Country</th>
-              <th>Latitude</th>
-              <th>Longitude</th>
               <th>Date of Birth</th>
               <th>Age</th>
               <th>Action</th>
@@ -49,8 +47,6 @@
                 <td><%= data[i].address['state'] %></td>
                 <td><%= data[i].address['postal_code'] %></td>
                 <td><%= data[i].address['country'] %></td>
-                <td><%= data[i].latitude %></td>
-                <td><%= data[i].longitude %></td>
                 <td><%= ("0" + (new Date(data[i].birthday).getMonth()+1)).slice(-2) %>/<%= ("0" + (new Date(data[i].birthday).getDate()+1)).slice(-2) %>/<%= new Date(data[i].birthday).getFullYear()%></td>
                 <td><%= data[i].age %></td>
                 <td>
@@ -69,7 +65,7 @@
       </div>
       <div class="col-12 table-action-row" style="text-align: left;">
         <a href="#" class="btn has-material btn-danger" id="removeSelected">
-            Selected Delete
+            Delete Multiple IDs
         </a>
       </div>
 
