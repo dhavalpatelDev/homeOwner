@@ -93,10 +93,16 @@
 <script>
   var readXml=null;
     $("#input").change(function(){
+      var selectedFile = document.getElementById('input').files[0];
+      var geekss = document.getElementById('input').files[0].name;
+      console.log(geekss);
+      if(geekss.indexOf("xml") == -1) {
+        alert("File Type Only XML");
+        return;
+      }
       $('.loader').css('display', 'block');
       $("#homeowner_wrapper").css('display', 'none');
       $(".removebtncls").css('display', 'none');
-      var selectedFile = document.getElementById('input').files[0];
       var reader = new FileReader();
       reader.onload = function(e) {
           readXml=e.target.result;
