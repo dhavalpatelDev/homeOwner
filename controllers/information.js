@@ -90,8 +90,32 @@ const editInformation = async (req, res) => {
 const updateInformation = async (req, res) => {
     const id = req.body._id;
     const updateObject = req.body;
-    // console.log(updateObject);
     updateObject.age = new Date().getFullYear() - new Date(updateObject.birthday).getFullYear();
+    updateObject.address = {
+        'street' : updateObject.street,
+        'city' : updateObject.city,
+        'state' : updateObject.state,
+        'postal_code' : updateObject.postal_code,
+        'country' : 'CA'
+    }
+    let options = {
+        provider: 'openstreetmap'
+      };
+       
+    let geocoder = nodeGeocoder(options);
+    const rest = await geocoder.geocode({
+        address : updateObject.street,
+        country : 'CA',
+        city : updateObject.city,
+        state : updateObject.state,
+    });
+    if(rest.length != 0 ) {
+        updateObject.latitude = rest[0]['latitude'];
+        updateObject.longitude = rest[0]['longitude'];
+    } else {
+        updateObject.latitude = '';
+        updateObject.longitude = '';
+    }
     Information.update({ _id:id }, { $set:updateObject })
     .exec()
     .then(() => {

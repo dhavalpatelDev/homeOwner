@@ -16,7 +16,7 @@
                 <input type="hidden" name="_id" value = "<%= data[0]._id %>">
                 <div class="form-group row text-center">
                     <div class="col-md-2"><label for="exampleInputEmail1">Id</label></div>
-                    <div class="col-md-9 col-md-offset-1"><input type="text" class="form-control" id="id" name="id" value="<%= data[0].id %>" aria-describedby="emailHelp"></div>
+                    <div class="col-md-9 col-md-offset-1"><input type="text" class="form-control" id="id" name="id" value="<%= data[0].id %>" aria-describedby="emailHelp" readonly></div>
                 </div>
                 <div class="form-group row text-center">
                     <div class="col-md-2"><label for="exampleInputEmail1">First Name</label></div>
@@ -28,31 +28,31 @@
                 </div>
                 <div class="form-group row text-center">
                     <div class="col-md-2"><label for="exampleInputEmail1">Contact No</label></div>
-                    <div class="col-md-9 col-md-offset-1"><input type="text" class="form-control" id="contact_no" name="contact_no" value="<%= data[0].contact_no %>" aria-describedby="emailHelp"></div>
+                    <div class="col-md-9 col-md-offset-1"><input type="text" class="form-control" id="contact_no" name="contact_no" value="<%= data[0].contact_no %>" aria-describedby="emailHelp" pattern="[0-9]{1,10}" title="Between 1 - 10 digits"></div>
                 </div>
                 <div class="form-group row text-center">
                     <div class="col-md-2"><label for="exampleInputEmail1">Email</label></div>
-                    <div class="col-md-9 col-md-offset-1"><input type="text" class="form-control" id="email" name="email" value="<%= data[0].email %>" aria-describedby="emailHelp"></div>
+                    <div class="col-md-9 col-md-offset-1"><input type="email" class="form-control" id="email" name="email" value="<%= data[0].email %>" aria-describedby="emailHelp"></div>
                 </div>
                 <div class="form-group row text-center">
                     <div class="col-md-2"><label for="exampleInputEmail1">Street</label></div>
-                    <div class="col-md-9 col-md-offset-1"><input type="text" class="form-control" id="street" name="street" value="<%= data[0]['address'].street %>" aria-describedby="emailHelp" readonly></div>
+                    <div class="col-md-9 col-md-offset-1"><input type="text" class="form-control" id="street" name="street" value="<%= data[0]['address'].street %>" aria-describedby="emailHelp" ></div>
                 </div>
                 <div class="form-group row text-center">
                     <div class="col-md-2"><label for="exampleInputEmail1">City</label></div>
-                    <div class="col-md-9 col-md-offset-1"><input type="text" class="form-control" id="city" name="city" value="<%= data[0]['address'].city %>" aria-describedby="emailHelp" readonly></div>
+                    <div class="col-md-9 col-md-offset-1"><input type="text" class="form-control" id="city" name="city" value="<%= data[0]['address'].city %>" aria-describedby="emailHelp" ></div>
                 </div>
                 <div class="form-group row text-center">
                     <div class="col-md-2"><label for="exampleInputEmail1">State</label></div>
-                    <div class="col-md-9 col-md-offset-1"><input type="text" class="form-control" id="state" name="state" value="<%= data[0]['address'].state %>" aria-describedby="emailHelp" readonly></div>
+                    <div class="col-md-9 col-md-offset-1"><input type="text" class="form-control" id="state" name="state" value="<%= data[0]['address'].state %>" aria-describedby="emailHelp" ></div>
                 </div>
                 <div class="form-group row text-center">
                     <div class="col-md-2"><label for="exampleInputEmail1">PostalCode</label></div>
-                    <div class="col-md-9 col-md-offset-1"><input type="text" class="form-control" id="postal_code" name="postal_code" value="<%= data[0]['address'].postal_code %>" aria-describedby="emailHelp" readonly></div>
+                    <div class="col-md-9 col-md-offset-1"><input type="text" class="form-control" id="postal_code" name="postal_code" value="<%= data[0]['address'].postal_code %>" aria-describedby="emailHelp" ></div>
                 </div>
                 <div class="form-group row text-center">
                     <div class="col-md-2"><label for="exampleInputEmail1">Country</label></div>
-                    <div class="col-md-9 col-md-offset-1"><input type="text" class="form-control" id="country" name="country" value="<%= data[0]['address'].country %>" aria-describedby="emailHelp" readonly></div>
+                    <div class="col-md-9 col-md-offset-1"><input type="text" class="form-control" id="country" name="country" value="<%= data[0]['address'].country %>" aria-describedby="emailHelp" ></div>
                 </div>
                 <div class="form-group row text-center">
                     <div class="col-md-2"><label for="exampleInputEmail1">Latitude</label></div>
@@ -64,7 +64,7 @@
                 </div>
                 <div class="form-group row text-center">
                     <div class="col-md-2"><label for="exampleInputEmail1">Date of Birth</label></div>
-                    <div class="col-md-9 col-md-offset-1"><input type="date" class="form-control" id="birthday" name="birthday" value="<%= new Date(data[0].birthday).getFullYear() %>-<%= ('0' + (new Date(data[0].birthday).getMonth()+1)).slice(-2) %>-<%= ('0' + (new Date(data[0].birthday).getDate())).slice(-2) %>" aria-describedby="emailHelp"></div>
+                    <div class="col-md-9 col-md-offset-1"><input type="text" class="form-control" id="birthday" name="birthday" value="<%= new Date(data[0].birthday).getFullYear() %>-<%= ('0' + (new Date(data[0].birthday).getMonth()+1)).slice(-2) %>-<%= ('0' + (new Date(data[0].birthday).getDate())).slice(-2) %>" ></div>
                 </div>
                 <div class="form-group row text-center">
                     <div class="col-md-2"><label for="exampleInputEmail1">Age</label></div>
@@ -86,7 +86,25 @@
 </body>
 <% include partials/script %>
 <script>
+// $("#birthday").datepicker({
+//     maxDate: 0
+// });
 
+// $( "#birthday" ).datepicker({dateFormat: "mm/dd/yyyy",  maxDate: new Date() });
 
+var currentDate = new Date();
+$('#birthday').datepicker({
+format: 'yyyy-mm-dd',
+autoclose:true,
+endDate: "currentDate",
+maxDate: currentDate
+}).on('changeDate', function (ev) {
+    $(this).datepicker('hide');
+});
+$('#birthday').keyup(function () {
+    if (this.value.match(/[^0-9]/g)) {
+        this.value = this.value.replace(/[^0-9^-]/g, '');
+    }
+});
 </script>
 </html>
