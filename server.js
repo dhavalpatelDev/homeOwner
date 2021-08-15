@@ -5,6 +5,9 @@ const bodyParser = require('body-parser');
 const logger = require('morgan');
 const mainRoutes = require('./routes/main');
 const path = require('path');
+
+require("dotenv").config();
+
 var cookieParser = require('cookie-parser');
 
 const app = express();
@@ -23,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', mainRoutes);
 
-mongoose.connect('mongodb://127.0.0.1:27017/HomeOwner')
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/HomeOwner')
   .then(()=> {
     console.log('Database connected');
   })
@@ -31,7 +34,6 @@ mongoose.connect('mongodb://127.0.0.1:27017/HomeOwner')
     console.log('Error connecting to database');
 });
 
-app.listen(3000, function() {
-    console.log('listening on 3000')
+app.listen(process.env.PORT || 3000 ,function() {
+  console.log('listening on 3000')
 })
-

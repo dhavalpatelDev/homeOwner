@@ -20,8 +20,11 @@
 </head>
 <body>
 <% include partials/menu %>
+<header style="text-align: center">
+  <h1>Home Owner Information</h1><br>
+</header>
 <div class="container-fluid bg-3 text-center">    
-  <h3>Home Owner Information</h3><br>
+
   <form id="xmlForm" name="xmlForm">
     <input id="input" type="file" class="btn btn-primary" accept=".xml">
   </form>
@@ -88,6 +91,11 @@
 
   </div>
 </div>
+
+<footer style="position: absolute; bottom:0; text-align: center; width: 95vw;">
+  <hr>
+  <p>Copyrights<sup>&copy;</sup> 2021. Developed with <i class="fas fa-heart" style="color: red;"></i> by ABC & team</p>
+</footer>
 </body>
 <% include partials/script %>
 <script>
