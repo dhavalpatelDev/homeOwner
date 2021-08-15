@@ -35,5 +35,6 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/HomeOwner
 });
 
 app.listen(process.env.PORT || 3000 ,function() {
-  console.log('listening on 3000')
+  if(process.env.PORT) console.log('listening on 8000');
+  else console.log('listening on 3000');
 })
