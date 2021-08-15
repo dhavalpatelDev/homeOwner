@@ -64,7 +64,7 @@
                 </div>
                 <div class="form-group row text-center">
                     <div class="col-md-2"><label for="exampleInputEmail1">Date of Birth</label></div>
-                    <div class="col-md-9 col-md-offset-1"><input type="text" class="form-control" id="birthday" name="birthday" value="<%= new Date(data[0].birthday).getFullYear() %>-<%= ('0' + (new Date(data[0].birthday).getMonth()+1)).slice(-2) %>-<%= ('0' + (new Date(data[0].birthday).getDate())).slice(-2) %>" ></div>
+                    <div class="col-md-9 col-md-offset-1"><input type="text" class="form-control" id="birthday" name="birthday" value="<%= ('0' + (new Date(data[0].birthday).getMonth()+1)).slice(-2) %>/<%= ('0' + (new Date(data[0].birthday).getDate()+1)).slice(-2) %>/<%= new Date(data[0].birthday).getFullYear()%>" ></div>
                 </div>
                 <div class="form-group row text-center">
                     <div class="col-md-2"><label for="exampleInputEmail1">Age</label></div>
@@ -94,7 +94,7 @@
 
 var currentDate = new Date();
 $('#birthday').datepicker({
-format: 'yyyy-mm-dd',
+format: 'mm/dd/yyyy',
 autoclose:true,
 endDate: "currentDate",
 maxDate: currentDate

@@ -15,7 +15,7 @@
         <table class="table table-striped table-bordered" id="homeowner">
           <thead class="thead-dark">
             <tr style="background-color: #b4d2b4;">
-              <th></th>
+              <th>All</th>
               <th>Id</th>
               <th>FirstName</th>
               <th>LastName</th>
@@ -51,7 +51,7 @@
                 <td><%= data[i].address['country'] %></td>
                 <td><%= data[i].latitude %></td>
                 <td><%= data[i].longitude %></td>
-                <td><%= new Date(data[i].birthday).getFullYear()%>-<%= new Date(data[i].birthday).getMonth()+1%>-<%= new Date(data[i].birthday).getDate() %></td>
+                <td><%= ("0" + (new Date(data[i].birthday).getMonth()+1)).slice(-2) %>/<%= ("0" + (new Date(data[i].birthday).getDate()+1)).slice(-2) %>/<%= new Date(data[i].birthday).getFullYear()%></td>
                 <td><%= data[i].age %></td>
                 <td>
                   <a class="btn btn-xs btn-info edit_owner" href="/edit/<%= data[i]._id %>">
@@ -67,7 +67,7 @@
           </tbody>
         </table>
       </div>
-      <div class="col-12 table-action-row">
+      <div class="col-12 table-action-row" style="text-align: left;">
         <a href="#" class="btn has-material btn-danger" id="removeSelected">
             Selected Delete
         </a>
